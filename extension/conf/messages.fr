@@ -1,0 +1,177 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+# Default CRUD messages
+# ~~~~~~
+
+crud.title=Administration
+crud.home=Accueil
+crud.blank=Nouveau
+crud.index.title=Choisir un objet à modifier
+crud.index.objectType=Type d'objet
+crud.index.action=
+crud.index.add=Ajouter
+crud.add=Ajouter &{%s}
+crud.list.title=&{%s}
+crud.list.size=%d &{%s}
+crud.list.totalSize=%d total
+crud.pagination.previous=« Précedent
+crud.pagination.next=Suivant »
+crud.pagination.last=Dernier »»
+crud.pagination.first=«« Premier
+crud.show.title=Modifier &{%s}
+crud.save=Enregister
+crud.saveAndContinue=Enregister et continuer à modifier
+crud.cancel=Annuler
+crud.hasErrors=Corrigez les erreurs s'il vous plait
+crud.blank.title=Ajouter &{%s}
+crud.saveAndAddAnother=Enregister et créer un nouveau
+crud.delete=Supprimer &{%s}
+crud.created=L(e|a) &{%s} a été créé(e)
+crud.saved=L(e|a) &{%s} a été enregistré(e)
+crud.deleted=L(e|a) &{%s} a été supprimé(e)
+crud.delete.error=Impossible de supprimer cet objet
+crud.search=Rechercher
+crud.none=(vide)
+crud.selectValue=(Selectionnez un élément s'il vous plait)
+
+crud.help.required=Réquis.
+crud.help.minlength=La taille minimale est %d.
+crud.help.maxlength=La taille maximale est %d.
+crud.help.email=Adresse email valide.
+crud.help.dateformat=format &{%s}.
+crud.help.numeric=Numérique.
+crud.help.min=Doit être plus grand que %d.
+crud.help.future=Dans le futur.
+crud.help.past=Dans le passé.
+crud.help.after=Après %s.
+crud.help.before=Avant %s.
+crud.help.range=Entre %d et %d
+
+# =============================== STANDARDS ===============================
+active = Active
+author = Auteur
+createAssociation.message = Veuillez redéfinir cette méthode dans une sous-classe de models.Standard.java.
+errors = Les erreurs suivantes se sont produites : &{%s}
+
+# =============================== USERS ===============================
+Users = Utilisateurs
+User = Utilisateur
+user =  = Utilisateur
+firstName = Prénom
+user.firstName = Prénom
+required.user.firstName = Le prénom est obligatoire. Renseignez un prénom s'il vous plait.
+lastName = Nom
+user.lastName = Nom
+required.user.lastName = Le nom est obligatoire. Renseignez un nom s'il vous plait.
+username = Nom d'utilisateur
+user.username = Le nom d'utilisateur
+min.user.username = La longueur du nom d'utilisateur doit avoir au moins 6 caratères.
+pseaudo = Pseaudo
+user.pseaudo = Le pseaudo
+min.user.pseaudo = La longueur du pseaudo doit avoir au moins 6 caratères.
+unique.user.pseaudo = Cet pseaudo existe déjà. Veuillez choisir un autre.
+required.user.pseaudo = Le pseaudo est réquis.
+email = E-mail
+user.email = E-mail
+required.user.email = L'email est obligatoire. Donnez un email s'il vous plait.
+valid.user.email = L'email n'est pas valide. Donnez un email valide s'il vous plait.
+unique.user.email = Cet email existe déjà. Veuillez choisir un autre.
+password = Mot de passe
+user.password = Mot de passe
+required.user.password = Le mot de passe est obligatoire. Donnez un mot de passe s'il vous plait.
+valid.user.password = Le mot de passe donné n'est pas valide. Donnez un mot de passe valide s'il vous plait.
+username = Nom d'utilisateur.
+user.username = Nom d'utilisateur.
+required.user.username = Le nom d'utilisateur est obligatoire. Veuillez donner un nom d'utilisateur s'il vous plait.
+valid.user.username = Le nom d'utilisateur n'est pas valide. Veuillez donner un nom d'utilisateur valide s'il vous plait.
+profile = Profil
+user.profile = Profil de l'utilisateur
+match.user.confirmPassword = Les mots de passe ne correspondent pas.
+user.confirmPassword = Confirmation mot de passe
+passwordToken.incorrect = Votre token a expiré.
+confirmPassword = Confirmation mot de passe
+required.user.confirmPassword = Confirmation mot de passe est obligatoire.
+update.user.password = &{%s} votre mot de passe a bien été mis à jour.
+password.reset = Changement de mot de passe
+user.notfound = Utilisateur introuvable
+
+# =============================== INFORMATIONS ===============================
+Informations = Informations
+information = Information
+informationType = Type d'information
+information.informationType = Type d'information
+required.information.informationType = Le type d'information est requis.
+content = Contenu
+information.content = Le contenu de l'information
+required.information.content = Le continu est réquis.
+
+# =============================== ATTACHMENTS ===============================
+Attachments = Fichiers
+attachment = Fichier
+attachmentType = Le type de l'attachement
+attachment.attachmentType = Le type de l'attachement
+required.attachment.attachmentType = Le type de l'attachement est obligatoire.
+title = Titre
+attachment.title = Titre du fichier
+required.attachment.title = Le titre du fichier est obligatoire.
+data = Attachement
+attachment.data = L'attachement
+required.attachment.data = Le fichier est obligatoire. Veuillez joindre un fichier s'il vous plait.
+required.attachment.information = L'information ou la requête pour le fichier est obligatoire.
+required.attachment.requete = La requête ou l'information pour le fichier est obligatoire.
+
+# =============================== POSTS ===============================
+post.title = Titre du poste
+post.content = Le contenu du poste
+post.author = L'auteur du poste
+
+required.post.author = Veuillez renseigner l'auteur. 
+required.post.title = Veuillez choisir un titre pour votre post.
+required.post.title.max = Longueur maximale pour le titre est atteinte. 
+required.post.content = Veillez renseigner le contenu de votre post. 
+user.connection.error = Veuillez vous connecter s'il vous plait. 
+
+submit.post.on = Posté par &{%s} le &{%s}
+read.more = Lire la suite
+read.less = Réduire
+
+# =============================== COMMENTS ===============================
+comment.content = Contenu du commentaire
+required.comment.content = Le contenu du commentaire est obligatoire.
+
+# =============================== MESSAGES ===============================
+subject = L'objet
+message.subject = L'objet du message
+from = De
+message.from = De
+required.message.from = L'expéditeur est réquis.
+to = À
+message.to = À
+required.message.to = Destinateur est réquis.
+
+# =============================== TEMPLATES ===============================
+# =============================== MAIN ===============================
+Home = Accueil
+identification = Identification
+login = Connexion
+register = S'inscrire
+logout = Déconnexion
+confirm.delete = Voulez vous vraiment supprimer ?
+information.user = Mes informations
+no.more.items = Aucun élément
+signup.message = Inscription
+login.message = Connexion
+forgotPassword.message = Mot de passe oublié
+changePassword.message = Changer mot de passe
+forgotPassword.button = Mot de passe oublié (?)
+validate = Valider
+comment.button = Commenter
+post.comment = Ecrivez votre commentaire ici.
+
+# =============================== MAILS ===============================
+email.error = Mail non envoyé &{%s}
+user.welcome = Bienvenue &{%s}
+confirm.user = &{%s} votre compte a bien été confirmé.
+send = Envoyer

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        *{=================== BOOSTTRAP ===================}*
+        <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap-theme.min.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/jasny-bootstrap/css/jasny-bootstrap.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/jasny-bootstrap/css/navbar-offcanvas.css'}">
+        *{=================== ========= ===================}*
+        
+        #{get 'moreStyles' /}
+        #{get 'editorStyles' /}
+        
+        *{===================  CUSTOM   ===================}*
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        *{=================== ========= ===================}*
+        
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        
+        *{=================== JQUERY JS ===================}*
+        <script src="@{'/public/javascripts/jquery-1.11.1.min.js'}" type="text/javascript" charset="UTF-8"></script>
+        *{=================== ========= ===================}*
+        
+        *{=================== BOOTSTRAP ===================}*
+        <script src="@{'/public/bootstrap/js/bootstrap.js'}" type="text/javascript" charset="UTF-8"></script>
+        <script src="@{'/public/jasny-bootstrap/js/jasny-bootstrap.js'}" type="text/javascript" charset="UTF-8"></script>
+        *{=================== ========= ===================}*
+    </head>
+    <body>
+    	<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+				<button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas" 
+					data-target=".navbar-offcanvas" data-canvas="body">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+	          	</button>
+		      	<a class="navbar-brand" href="@{Application.index}">Brand</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		     *{ navmenu-fixed-left }*
+		    <div class="navbar-offcanvas navmenu-fixed-left offcanvas">
+		      <a class="navmenu-brand" href="@{Application.index}">Brand</a>
+		      <ul class="nav navbar-nav">
+		        #{if connected}
+		        <li class="${request.action == 'Admin.index' ? 'active' : ''}">
+		        	<a href="@{Admin.index()}">&{'crud.title'}</a>
+		        </li>
+		        #{/if}
+		        #{else}
+		        <li class="${request.action == 'Application.index' ? 'active' : ''}">
+		        	<a href="@{Application.index}">&{'Home'}</a>
+		        </li>
+		        #{/else}
+		        <li class="${request.action == 'Posts.index' ? 'active' : ''}"><a href="@{Posts.index()}">Blog</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+		          <i class="glyphicon glyphicon-user"></i> ${connected ? connected?.fullName() : messages.get('login') } <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		          	#{if connected}
+		            <li class="${request.action == 'Users.show' ? 'active' : ''}"><a href="@{Users.show(connected?.id)}">&{'information.user'}</a></li>
+		            <li class="divider"></li>
+		            <li><a href="@{Secure.logout}">&{'logout'} <i class="glyphicon glyphicon-log-out"></i></a></li>
+		            #{/if}
+		            #{else}
+		            <li><a href="@{Secure.login}"><i class="glyphicon glyphicon-log-in"></i> &{'login'}</a></li>
+		            <li><a href="@{Users.signup}"><i class="glyphicon glyphicon-registration-mark"></i> &{'register'}</a></li>
+		            #{/else}
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="container">
+			#{if flash.success}
+			<div class="crudFlash flashSuccess success">${flash.success}</div>
+			#{/if} 
+			#{if flash.error || error}
+			<div class="crudFlash flashError error">${error ?: flash.error}</div>
+			#{/if}
+		</div>
+    	#{doLayout /}
+    	
+        
+        *{== Editor scripts will be setted if necessary ===}*
+        #{get 'editorScripts' /}
+        *{=================== ========= ===================}*
+        
+        *{======== Scripts set in another template ========}*
+		#{get 'moreScripts' /}
+		*{=================== ========= ===================}*
+    </body>
+    
+</html>

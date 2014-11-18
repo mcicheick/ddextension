@@ -1,0 +1,67 @@
+#{extends 'CRUD/layout.html' /} 
+#{set title:messages.get('crud.show.title', type.modelName) /} 
+#{set 'editorStyles'}
+<link rel="stylesheet" type="text/css"
+	href="@{'/public/ckeditor/skins/moono/editor.css'}">
+#{/set} 
+#{set 'editorScripts'}
+<script type="text/javascript" src="@{'/public/ckeditor/ckeditor.js'}"></script>
+<script type="text/javascript" src="@{'/public/ckeditor/config.js'}"></script>
+#{/set} 
+#{set 'moreScripts'}
+<script>
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace( 'edit' );
+</script>
+#{/set}
+
+<div id="crud">
+	<div id="crudShow" class="${type.name}">
+
+		<h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+
+		<div class="objectForm">
+			#{form action:@save(object._key()), enctype:'multipart/form-data'}
+			#{crud.form fields:['subject', 'from', 'to', 'content']}
+			#{crud.custom 'subject'}
+	        <div class="form-group">
+				#{field 'object.subject'}
+				<label for="${field.id}">&{'message.subject'}</label>
+				<input type="text" class="form-control ${field.errorClass}" name="${field.name}" id="${field.id}" value="${object?.subject}" 
+					placeholder="&{'message.subject'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			#{crud.custom 'content'} 
+			#{field 'object.content'}
+			<textarea rows="10" cols="100"
+				class="col-md-12 #{errorClass '${field.name}'/}" id="edit"
+				name="${field.name}" placeholder="&{'content'}" required>${object?.content}</textarea>
+			#{error '${field.name}' /} 
+			#{/field} 
+			#{/crud.custom} 
+			#{/crud.form}
+			<p class="crudButtons">
+				<input class="btn btn-primary" type="submit" name="_save"
+					value="&{'crud.save', type.modelName}" /> 
+				<input class="btn btn-primary" type="submit"
+					name="_saveAndContinue"
+					value="&{'crud.saveAndContinue', type.modelName}" />
+			</p>
+			#{/form}
+		</div>
+
+		#{form @delete(object._key())}
+		<p class="crudDelete">
+			*{'Voulez vous vraiment supprimer ce poste ?'}* 
+			<input type="submit"
+				onclick="return confirm('&{'confirm.delete'}');"
+				value="&{'crud.delete', type.modelName}" />
+		</p>
+		#{/form}
+	</div>
+</div>

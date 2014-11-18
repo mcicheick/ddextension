@@ -17,15 +17,22 @@ then
 	exit 1
 fi
 app_dir=$1
-dd_dir=$DD_EXTENSION_HOME/DjammaDevExtension
-directories="app public conf/messages.en conf/messages.fr conf/routes conf/dependencies.yml"
-for dd in $directories
+dd_dir=$DD_EXTENSION_HOME/extension
+files="app public conf"
+secret=`cat $app_dir/conf/application.conf | grep application.secret`
+echo $secret
+echo $files
+for dd in $files
 do
 	rm -rf $app_dir/$dd &> /dev/null
 	cp -r $dd_dir/$dd $app_dir/$dd &> /dev/null
 	echo "$dd_dir/$dd copied in $app_dir/$dd"
 done
 cp $dd_dir/gitignore $app_dir/.gitignore &> /dev/null
+app_name=`basename $app_dir`
+cat $app_dir/conf/application.conf | sed -e s/"application.name"/"application.name=$app_name"/g > /tmp/application.conf
+cat /tmp/application.conf | sed -e s/"application.secret"/"$secret"/g > $app_dir/conf/application.conf
+rm /tmp/application.conf
 echo "$dd_dir/gitignore copied in $app_dir/.gitignore"
 echo "Change App Name"
 $PLAY_HOME/play deps $app_dir

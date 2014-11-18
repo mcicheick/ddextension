@@ -1,0 +1,31 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
+
+<div id="crudBlank" class="${type.name}">
+	<div class="col-xs-12 col-md-9">
+	    <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
+	    <div class="objectForm">
+	    #{form action:@create(), enctype:'multipart/form-data'}
+	        #{crud.form fields:['attachmentType', 'author', 'active', 'data']}
+	        #{crud.custom 'attachmentType'}
+	        <div class="form-group">
+				#{field 'object.attachmentType'}
+				<label for="${field.id}">&{'attachment.attachmentType'}</label>
+				<input type="text" class="form-control ${field.errorClass}" name="${field.name}" id="${field.id}" value="${field.value}" 
+					placeholder="&{'attachment.attachmentType'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+	        #{/crud.form}
+	        <p class="crudButtons">
+	            <input class="btn btn-primary" type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+	            <input class="btn btn-primary" type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+	            <input class="btn btn-primary" type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
+	        </p>
+	    #{/form}
+	    </div>
+	</div>
+</div>

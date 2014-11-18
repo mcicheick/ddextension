@@ -1,0 +1,44 @@
+#{extends 'main.html' /}
+#{set title:'Blog' /}
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/readmore.js'}" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+	$('article').readmore({
+	   speed: 75,
+	   maxHeight: 50,
+	   moreLink: "<a href='#'>&{'read.more'}</a>",
+	   lessLink: "<a href='#'>&{'read.less'}</a>"
+  	});
+</script>
+#{/set}
+<div class="container-fluid">
+	<div class="col-xs-12 col-md-8 col-md-offset-2 col-xs-offset-0">
+		<div class="row">
+			<div class="col-xs-12 col-md-9">
+				#{list items:pages?.data, as:'post'}
+				<h3><a href="@{show(post?.id)}">${post.title}</a></h3>
+				<span class="submitted">&{'submit.post.on', post.author.pseaudo, post.createDate?.format() }</span>
+				<article>
+					<p id="post-${post?.id}">
+						${post?.content?.raw()}
+					</p>
+				</article>
+				<hr/>
+				#{/list}
+				#{else}
+				<h3>&{'no.more.items'}</h3>
+				#{/else}
+				#{pagination /}
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<h2>&{'Recents'}</h2>
+				#{list models.Post.recents(5), as:'recent'}
+				<h4><a href="@{show(recent?.id)}">${recent.title}</a></h4>
+				<p>
+					${recent?.content?.tronk(50)?.raw()}
+				</p>
+				#{/list}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,128 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+# =============================== STANDARDS ===============================
+active = Active
+author = Author
+createAssociation.message = Please override this method in a sub-class of models.Standard.java.
+errors = Following errors occured : &{%s}
+
+# =============================== USERS ===============================
+Users = Users
+User = User
+user = User
+firstName = First name
+user.firstName = First name
+required.user.firstName = The first name is required. Please give a first name.
+lastName = Last name
+user.lastName = Last name
+required.user.lastName = The last name is required. Please give a last name.
+username = Username
+user.username = The username
+min.user.username = The username must be greater than 6.
+pseaudo = Pseaudo
+user.pseaudo = Pseaudo name
+min.user.pseaudo = The pseaudo must be greater than 6.
+unique.user.pseaudo = This pseaudo already exist. Please select another.
+required.user.pseaudo =The pseaudo is required.
+email = E-mail
+user.email = E-mail
+required.user.email = Email is required. Please give an email.
+valid.user.email = Email is not valid. Please give a valid email.
+unique.user.email = This Email already exist. Please select another.
+password = Password
+user.password = Password
+required.user.password = The password is required
+valid.user.password = Password is incorrect. Please give a correct password.
+username = Username
+user.username = Username
+required.user.username = Username is required. Please give a username.
+valid.user.username = Username is incorrect. Please give a correct username.
+profile = Profile
+user.profile = User's profile
+match.user.confirmPassword = Passwords don't match.
+user.confirmPassword = Confirm password
+passwordToken.incorrect = Your token is expired.
+confirmPassword = Confirm password
+user.confirmPassword = Confirm password is required.
+update.user.password = &{%s} your password has been updated.
+password.reset = Reset Password
+user.notfound = User not found
+
+# =============================== INFORMATIONS ===============================
+Informations = Informations
+information = Information
+informationType = Information type
+information.informationType = Information type
+required.information.informationType = Information's type is required.
+content = Content
+information.content = Information's content
+required.information.content = Information's content is required.
+
+# =============================== ATTACHMENTS ===============================
+Attachments = Attachments
+attachment = Attachment
+attachmentType = Attachment's type
+attachment.attachmentType = Attachment's type
+required.attachment.attachmentType = Attachment's type is required.
+title = Title
+attachment.title = Attachment's title
+required.attachment.title = Attachment's type is required.
+data = Data
+attachment.data = Attachment data
+required.attachment.data = Attachment's data is required. Please join a data.
+required.attachment.information = Information or request for attachment is required.
+required.attachment.requete = Request or information for attachment is required.
+
+# =============================== POSTS ===============================
+post.title = Post title
+post.content = Content post
+post.author = Post's author
+
+required.bribe.author = Please Fill in Author.
+required.post.title = Please insert Post Title.
+required.post.title.max = We're sorry. You've reached the maximum length for title. 
+required.post.content = Please insert post content.
+
+submit.post.on = Submitted by &{%s} on &{%s}
+read.more = Read more
+read.less = Close
+
+# =============================== COMMENTS ===============================
+comment.content = Comment content
+required.comment.content = Content is required please give a content
+
+# =============================== MESSAGES ===============================
+subject = Subject
+from = From
+message.from = From
+required.message.from = Expeditor is required.
+to = To
+message.to = To
+required.message.to = Destination is requierd.
+
+# =============================== TEMPLATES ===============================
+# =============================== MAIN ===============================
+Home = Home
+identification = Identification
+login = Login
+register = Sign up
+logout = Log out
+confirm.delete = Do you want really delete?
+information.user = My informations
+no.more.items = No item
+signup.message = Inscription
+login.message = Connexion
+forgotPassword.message = Password forgot
+changePassword.message = Change password
+forgotPassword.button = Password forgot (?)
+validate = Validate
+comment.button = Comment
+post.comment = Write your comment here.
+
+# =============================== MAILS ===============================
+email.error = Mail doesn't sent &{%s}
+user.welcome = Welcome &{%s} !
+confirm.user = &{%s} your account has been confirmed.
+send = Send
+

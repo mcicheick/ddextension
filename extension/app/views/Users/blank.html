@@ -1,0 +1,114 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
+
+<div id="crudBlank" class="${type.name}">
+	<div class="col-xs-12 col-md-9">
+	    <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
+	    <div class="objectForm">
+	    #{form action:@create(), enctype:'multipart/form-data'}
+	        #{crud.form fields:['firstName', 'lastName', 'username', 'email', 'profile', 'password', 'active']}
+	        
+	        #{crud.custom 'firstName'}
+	        <div class="form-group">
+				#{field 'object.firstName'}
+				<label for="${field.id}">&{'user.firstName'}</label>
+				<input type="text" class="form-control ${field.errorClass}" name="${field.name}" id="${field.id}" value="${object?.firstName}" 
+					placeholder="&{'user.firstName'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			
+			#{crud.custom 'lastName'}
+			<div class="form-group">
+				#{field 'object.lastName'}
+				<label for="${field.id}">&{'user.lastName'}</label>
+				<input type="text" class="form-control ${field.errorClass}" 
+					name="${field.name}" id="${field.id}" value="${field.value}" 
+					placeholder="&{'user.lastName'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			
+			#{crud.custom 'username'}
+			<div class="form-group">
+				#{field 'object.username'}
+				<label for="${field.id}">&{'user.username'}</label>
+				<input type="text" id="${field.id}" class="form-control ${field.errorClass}" required
+					name="${field.name}" value="${field.value}"
+					placeholder="&{'user.username'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			
+			#{crud.custom 'email'}
+			<div class="form-group">
+				#{field 'object.email'}
+				<label for="${field.id}">&{'user.email'}</label>
+				<input type="text" id="${field.id}" class="form-control ${field.errorClass}" required
+					name="${field.name}" id="${field.id}" value="${field.value}" 
+					placeholder="&{'user.email'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			
+			#{crud.custom 'profile'}
+			<div class="form-group">
+				#{field 'object.profile'}
+				<label for="${field.id}">&{'profile'}</label>
+				<input type="text" id="${field.id}" class="form-control ${field.errorClass}" required
+					name="${field.name}" id="${field.id}" value="${field.value}" 
+					placeholder="&{'user.profile'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			#{/crud.custom}
+			
+	        #{crud.custom 'password'}
+	        <div class="form-group">
+				#{field 'object.password'}
+				<label for="${field.id}">&{'user.password'}</label>
+				<input type="password" id="${field.id}" class="form-control ${field.errorClass}" required
+					name="${field.name}" id="${field.id}" value="" 
+					placeholder="&{'user.password'}"/>
+				#{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+			    #{/field}
+			</div>
+			<div class="form-group">
+				#{field 'confirmPassword'}
+			    <label for="${field.id}">
+			        &{field.name}
+			    </label>
+			    <input type="password" id="${field.id}" class="form-control ${field.errorClass}" required
+					name="${field.name}"placeholder="&{field.name}" />
+			    #{ifError field.name}
+			        <span class="error">${field.error.raw()}</span>
+			    #{/ifError}
+				#{/field}
+			</div>
+	        #{/crud.custom}
+	        #{/crud.form}
+	        <p>
+	            <input class="btn btn-primary" type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+	            <input class="btn btn-primary" type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+	            <input class="btn btn-primary" type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
+	        </p>
+	    #{/form}
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div id="welcome">
+     #{if user}
+     Bonjour ${user.fullName()}, <br/>       
+     Vous venez de vous inscrire sur <a href="@@{Application.index}">Surofinkele</a>.<br/>
+     Nous vous souhaitons la bienvenue et sommes très heureux de vous compter parmi nos membres.  
+     Pour confirmer votre compte veuillez cliquer sur ce lien.<br/>
+     <a style="text-align: center;" href="@@{Users.confirm(user.confirmToken)}">Confirmer mon compte</a>
+    #{/if}
+</div>
