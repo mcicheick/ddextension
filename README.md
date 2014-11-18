@@ -8,7 +8,7 @@ export PLAY_HOME=/path/to/play_home
 export DD_EXTENSION_HOME=/path/to/ddextension
 
 # Step 3 replace script play bye custom
-mv $DD_EXTENSION_HOME/play $PLAY_HOME/play
+cp $DD_EXTENSION_HOME/play $PLAY_HOME/play
 
 # Enjoy !
 
