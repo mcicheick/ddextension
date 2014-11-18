@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+if [ $# -lt 1 ]
+then
+	echo "Usage : ddmodule app_name"
+	exit 1
+fi
+if [ "X$PLAY_HOME" = "X" ]
+then
+	echo "PLAY_HOME must be defined"
+	echo "Then ddmodule $1"
+	exit 1
+fi
+if [ "X$DD_EXTENSION_HOME" = "X" ]
+then
+	echo "DD_EXTENSION_HOME must be defined"
+	echo "Then ddmodule $1"
+	exit 1
+fi
+app_dir=$1
+dd_dir=$DD_EXTENSION_HOME/DjammaDevExtension
+directories="app public conf/messages.en conf/messages.fr conf/routes conf/dependencies.yml .gitignore"
+for dd in $directories
+do
+	rm -rf $app_dir/$dd &> /dev/null
+	cp -r $dd_dir/$dd $app_dir/$dd &> /dev/null
+	echo "$dd_dir/$dd copied in $app_dir/$dd"
+done
+echo "Change App Name"
+$PLAY_HOME/play deps $app_dir
+$PLAY_HOME/play eclipsify $app_dir
